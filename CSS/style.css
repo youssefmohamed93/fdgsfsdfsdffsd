@@ -1,0 +1,492 @@
+/* Font Import */
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@200..1000&display=swap');
+/* All */
+* {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-decoration: none;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: "Cairo", sans-serif;
+}
+/* ScrollBar */
+::-webkit-scrollbar {
+    width: 12.5px;
+}
+::-webkit-scrollbar-track {
+    background: white;
+}
+::-webkit-scrollbar-thumb {
+    background: var(--main-color);
+} 
+/* Variables */
+:root {
+    --main-color : #0099FF;
+    --bg-color : #FFF;
+    --sec-bg-color: #ECECEC;
+    --text-color: #000;
+    --p-color: #999;
+    --box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+/* Dark Theme */
+.dark {
+    --bg-color : #2F2F2F;
+    --sec-bg-color: #4C4C4C;
+    --text-color: #FFF;
+    --p-color: #FFF;
+    --box-shadow: 0 4px 30px rgba(106, 106, 106, 0.369);
+}
+/* Body */
+body {
+    direction: rtl; /* Arabic */
+    background: var(--bg-color);
+    height: 200vh;
+}
+/* Section */
+section {
+    padding: 60px 0;
+}
+/* Container */
+.container {
+    position: relative;
+    max-width: 1536px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 5px 80px;
+}
+@media(max-width: 1280px) {
+    .container {
+        max-width: 1280px;
+        padding: 5px 60px;
+    }
+}
+@media(max-width: 1024px) {
+    .container {
+        max-width: 1024px;
+        padding: 5px 40px;
+    }
+}
+@media(max-width: 768px) {
+    .container {
+        max-width: 768px;
+        padding: 5px 20px;
+    }
+}
+@media(max-width: 480px) {
+    .container {
+        max-width: 480px;
+        padding: 5px 10px;
+    }
+}
+/* Header */
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 10;
+    border-bottom: 3px solid var(--sec-bg-color);
+    background: var(--bg-color);
+}
+.header.activeNav {
+    transition: all ease-in-out 0.5s;
+    background: var(--sec-bg-color);
+}
+/* Logo */
+.logo a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo-image {
+    width: 50px;
+    height: 50px;
+    margin-top: 8px;
+}
+.logo-image img {
+    width: 50px;
+    height: 50px;
+}
+.logo .logo-name h1 {
+    font-size: 28px;
+    font-weight: 900;
+    color: var(--text-color);
+}
+/* Navbar */
+.navbar ul {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.navbar ul li a {
+    font-size: 19px;
+    font-weight: 700;
+    color: var(--text-color);
+}
+.navbar ul li a:hover , .navbar .navbar-active {
+    transition: 0.3s;
+    color: var(--main-color);
+}
+/* Navbar Icon */
+.bars {
+    display: none;
+}
+.bars i {
+    cursor: pointer;
+    position: relative;
+    padding: 5px 10px;
+    margin: 5px 0;
+    font-size: 28px;
+    border-radius: 2.5px;
+    z-index: 3;
+    color: var(--text-color);
+}
+/* Responsive Navbar */
+@media(max-width: 768px) {
+    .navbar ul {
+        position: absolute;
+        flex-direction: column;
+        top: -500px;
+        left: 20px;
+        z-index: 2;
+        gap: 0;
+        padding: 40px 30px 20px 30px;
+        border-bottom-left-radius: 8px;
+        border-bottom-right-radius: 8px;
+        transition: all ease-in-out 0.4s;
+        border: 2px solid var(--bg-color);
+        background: var(--sec-bg-color);
+    }
+    .bars {
+        display: block;
+    }
+    .navbar ul.navShow {
+        top: 0;
+    }
+    .navbar ul li {
+        text-align: center;
+        padding: 10px;
+    }
+    .navbar ul li a {
+        font-size: 18px;
+        font-weight: 600;
+    }
+}
+@media screen and (max-width: 480px) {
+    .navbar ul {
+        width: 100%;
+    }
+    .navbar ul {
+        padding: 30px;
+        left: 0;
+        border-radius: 0;
+    }
+}
+/* Settings Box */
+.settings-box {
+    position: fixed;
+    top: 0;
+    right: -200px;
+    width: 200px;
+    z-index: 100;
+    transition: all ease 0.5s;
+    background: #131313;
+}
+.settings-box.open-box {
+    right: 0;
+}
+.toggle-settings {
+    cursor: pointer;
+    position: absolute;
+    text-align: center;
+    top: 140px;
+    left: -32px;
+    width: 32px;
+    background: #131313;
+}
+.toggle-settings i {
+    font-size: 20px;
+    padding: 8px 0;
+    color: #FFF;
+}
+.settings-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.settings-container .option-box {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    margin: 20px;
+    gap: 15px;
+    border-radius: 5px;
+    background: #9999992e;
+}
+.option-box h3 {
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--main-color);
+}
+.option-box .colors-list {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+.option-box .colors-list li {
+    cursor: pointer;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    opacity: .4;
+    background: #333;
+}
+.option-box .colors-list li.colors-active , .option-box .colors-list li:hover {
+    transition: 0.3s;
+    opacity: 1;
+}
+.option-box .colors-list li:first-child {
+    background: #0099FF;
+}
+.option-box .colors-list li:nth-child(2) {
+    background: #E93075;
+}
+.option-box .colors-list li:nth-child(3) {
+    background: #4CAF50;
+}
+.option-box .colors-list li:last-child {
+    background: #FFA500;
+}
+/* DarkMode Theme */
+.darkmode {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+    margin: 20px;
+    gap: 15px;
+    border-radius: 5px;
+    background: #9999992e;
+}
+.darkmode h3 {
+    font-size: 27px;
+    font-weight: 900;
+    color: var(--main-color);
+}
+.darkmode-buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.darkmode-on a , .darkmode-off a {
+    padding: 0 16px;
+    border-radius: 5px;
+    opacity: .7;
+    color: #FFF;
+    background: var(--main-color);
+}
+.darkmode-buttons .darkmode-active , .darkmode-buttons a:hover  {
+    transition: 0.3s;
+    opacity: 1;
+}
+@media(max-width: 768px) {
+    .toggle-settings {
+        opacity: .75;
+    }
+}
+/* Quran Section */
+.quran {
+    padding-top: 60px !important;
+}
+.main-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 25px 0;
+    margin-bottom: 40px !important;
+}
+.main-title h1 {
+    position: relative;
+    font-size: 30px;
+    padding: 0 5px;
+    margin-right: -20px;
+    color: var(--text-color);
+}
+.main-title h1::before {
+    position: absolute;
+    content: "";
+    width: 100%;
+    height: 3px;
+    right: 0;
+    bottom: -5px;
+    border-radius: 20px;
+    background: var(--main-color);
+}
+.main-title h1::after {
+    position: absolute;
+    content: "";
+    width: 50%;
+    height: 3.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -15px;
+    border-radius: 20px;
+    background: var(--main-color);
+}
+.surahs {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+.surahs .surah {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    text-align: center;
+    min-height: 100px;
+    min-width: 200px;
+    padding: 10px;
+    margin: 5px;
+    box-shadow: var(--box-shadow);
+    border: 2px solid #DDD;
+    color: var(--text-color);
+}
+.surahs .surah:hover {
+    transition: all linear 0.3s;
+    transform: scale(1.04);
+}
+.surahs .surah p {
+    font-size: 18px;
+    color: var(--p-color);
+}
+.surahs .surah p:first-child {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--main-color);
+}
+.main-title input {
+    border: 1px solid var(--main-color);
+    background: var(--bg-color);
+    color: var(--text-color);
+    box-shadow: var(--box-shadow);
+}
+.main-title input:focus {
+    outline: none;
+}
+.main-title input::placeholder {
+    color: var(--p-color);
+}
+.main-title input[type="search"]::-webkit-search-cancel-button {
+    -webkit-appearance: none;
+}
+@media (max-width: 768px) {
+    .main-title {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 20px !important;
+    }
+    .main-title h1 {
+        font-size: 30px;
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+    .search-input {
+        width: 100%;
+    }
+    .main-title input[type="search"] {
+        width: 100%;
+        margin: 0 1px;
+        padding: 5px;
+    }
+    .main-title h1::before,
+    .main-title h1::after {
+        display: none;
+    }
+}
+@media (min-width: 769px) {
+    .main-title {
+        margin-bottom: 40px !important;
+    }
+    .main-title h1 {
+        font-size: 30px;
+        margin-right: -20px;
+    }
+    .main-title input[type="search"] {
+        width: 405px;
+        font-size: 18px;
+        padding: 5px;
+        margin-top: 10px;
+        margin-left: -20px;
+        margin-bottom: -40px;
+    }
+    .main-title h1::before,
+    .main-title h1::after {
+        display: block;
+    }
+}
+@media(max-width: 480px) {
+    .surahs .surah {
+        min-width: 180px;
+        padding: 5px;
+    }
+}
+@media(max-width: 400px) {
+    .surahs .surah {
+        min-width: 160px;
+    }
+    .surahs .surah p:first-child {
+        font-size: 20px;
+    }
+}
+/* Ayat Popup */
+.surah-popup {
+    position: fixed;
+    overflow-y: scroll;
+    inset: 0;
+    z-index: 20;
+    left: 2500px;
+    background: var(--bg-color);
+}
+.surah-popup.active-popup {
+    left: 0;
+    transition: ease-in-out 1s;
+}
+.close-popup {
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: sticky;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    border: 2px solid var(--text-color);
+    color: var(--text-color);
+    background: var(--bg-color);
+}
+.surah-popup .ayat {
+    text-align: center;
+    padding: 20px;
+    margin-top: 20px;
+    margin-right: 30px;
+    color: var(--text-color);
+}
+.surah-popup .ayat p {
+    font-size: 22px;
+    padding: 10px 0;
+    font-weight: 800;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    line-height: 2;
+    border-bottom: 2px solid var(--main-color);
+}

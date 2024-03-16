@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="icon" href="Images/Logo.png">
+    <link rel="stylesheet" href="CSS/style.css">
+    <title>Quran</title>
+</head>
+<body>
+    <header class="header container">
+        <div class="logo">
+            <a href="#">
+                <div class="logo-image">
+                    <img src="Images/Logo.png" alt="Quran">
+                </div>
+                <div class="logo-name">
+                    <h1>قرآن</h1>
+                </div>
+            </a>
+        </div>
+        <div class="navbar">
+            <ul>
+                <li>
+                    <a href="#" class="navbar-active">القرأن الكريم</a>
+                </li>
+                <li>
+                    <a href="#">الأحاديث</a>
+                </li>
+                <li>
+                    <a href="#">أوقات الصلاة</a>
+                </li>
+                <li>
+                    <a href="#">تواصل معنا</a>
+                </li>
+            </ul>
+        </div>
+        <div class="bars">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+    <div class="settings-box">
+        <div class="toggle-settings">
+            <i class="fa fa-gear"></i>
+        </div>
+        <div class="settings-container">
+            <div class="option-box">
+                <h3>Colors</h3>
+                <ul class="colors-list">
+                    <li class="colors-active" data-color="#0099FF"></li>
+                    <li data-color="#E93075"></li>
+                    <li data-color="#4CAF50"></li>
+                    <li data-color="#FFA500"></li>
+                </ul>
+            </div>
+            <div class="darkmode">
+                <h3>Dark Mode</h3>
+                <div class="darkmode-buttons">
+                    <div class="darkmode-on">
+                        <a href="#" id="darkModeOn">On</a>
+                    </div>
+                    <div class="darkmode-off">
+                        <a href="#" id="darkModeOff" class="darkmode-active">Off</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section class="quran container">
+        <div class="main-title container">
+            <h1>القرأن الكريم</h1>
+           <div class="search-input">
+            <input type="search" placeholder="ابحث عن السورة التي تريدها" id="searchInput">
+           </div>
+        </div>
+        <div class="surahs">
+        </div>
+        <div class="surah-popup">
+            <div class="close-popup">
+                <i class="fa-solid fa-xmark"></i>
+            </div>
+            <div class="ayat">
+            </div>
+        </div>
+    </section>
+    <script src="JS/main.js"></script>
+</body>
+</html>
